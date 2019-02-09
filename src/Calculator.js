@@ -18,12 +18,12 @@ export default class Calculator extends Component {
         event.preventDefault();
         let passed = true;
 
-        if( $("#NO1").val() === "" ){
+        if( $("#NO1").val() === "" || isNaN($("#NO1").val()) ){
             passed = false;
             $("#NO1").addClass('is-invalid');
         }
 
-        if( $("#NO2").val() === "" ){
+        if( $("#NO2").val() === "" || isNaN($("#NO2").val()) ){
             passed = false;
             $("#NO2").addClass('is-invalid');
         }
@@ -31,7 +31,7 @@ export default class Calculator extends Component {
         if( !passed ){
             Swal.fire({
                 title: '<i class="fas fa-exclamation-triangle"></i> Error!',
-                text: 'Please fill form fields correctly: ',
+                text: 'Please fill form fields correctly',
                 type: 'error',
                 confirmButtonText: 'Ok'
               });
